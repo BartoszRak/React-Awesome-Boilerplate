@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormField/> rendering should render as expected 1`] = `
+<FormikConnect(FieldInner)
+  name="my-field"
+  render={[Function]}
+/>
+`;
