@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.0",
+    "@rematch/core": "^1.0.6",
+    "@rematch/loading": "^1.1.2",
+    "classnames": "^2.2.6",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.15.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
@@ -14,6 +17,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-immutable-proptypes": "^2.1.0",
+    "react-redux": "^6.0.0",
     "react-scripts": "2.1.3",
     "uuid": "^3.3.2",
     "yup": "^0.26.10"
