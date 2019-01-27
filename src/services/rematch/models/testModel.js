@@ -1,9 +1,9 @@
 export const initialState = {}
 
-const auth = {
+const testModel = {
   effects: {},
   reducers: {},
   state: initialState,
 }
 
-export default auth
+export default testModel
