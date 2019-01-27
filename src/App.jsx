@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import withMuiTheme from '~theme/withMuiTheme'
 
 export class App extends Component {
   render() {
@@ -10,4 +11,4 @@ export class App extends Component {
   }
 }
 
-export default App
+export default withMuiTheme(App, true)

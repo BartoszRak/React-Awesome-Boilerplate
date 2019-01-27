@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 const path = require('path')
 
-const dirAliases = ['assets', 'components', 'layout', 'pages', 'services', 'utils']
+const dirAliases = ['assets', 'components', 'layout', 'pages', 'services', 'theme', 'utils']
 
 module.exports = {
   jest(config) {
@@ -17,7 +17,6 @@ module.exports = {
     config.coveragePathIgnorePatterns = [
       '/node_modules/',
       '/src/(index|serviceWorker|setupTests).js',
-      '/src/layout/theme.js',
       '/src/(.+)/index.js',
       '.*\\.(styles|mock)\\.js',
     ]
