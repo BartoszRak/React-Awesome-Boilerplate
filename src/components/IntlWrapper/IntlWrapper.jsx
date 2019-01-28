@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { flatten } from 'flat'
 import { addLocaleData, IntlProvider } from 'react-intl'
 import localeEn from 'react-intl/locale-data/en'
@@ -13,21 +14,28 @@ const messages = {
 }
 addLocaleData([...localeEn, ...localePl])
 
-const lang = 'en'
-
 export class IntlWrapper extends React.Component {
   static propTypes = {
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.string]),
+    language: PropTypes.string,
   }
 
   render() {
-    const { children } = this.props
+    const { children, language } = this.props
     return (
-      <IntlProvider locale={lang} messages={messages[lang]}>
+      <IntlProvider locale={language} messages={messages[language]}>
         {children}
       </IntlProvider>
     )
   }
 }
 
-export default IntlWrapper
+const mapState = ({
+  internationalization: {
+    language,
+  },
+}) => ({
+  language,
+})
+
+export default connect(mapState)(IntlWrapper)
