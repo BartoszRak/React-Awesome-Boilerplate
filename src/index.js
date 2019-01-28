@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker'
 import './index.css'
-import document from '~utils/document'
-import store from '~services/rematch'
+import document from './utils/document'
+import store from './services/rematch'
 
 import App from './App'
-import IntlWrapper from '~components/IntlWrapper'
+import IntlWrapper from './components/IntlWrapper'
 
 ReactDOM.render(
   <Provider store={store}>

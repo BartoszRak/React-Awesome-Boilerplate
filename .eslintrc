@@ -24,7 +24,6 @@
     "react/sort-prop-types": ["warn"],
     "semi": ["warn", "never"],
     "sort-keys": ["warn", "asc", { "natural": true }],
-    "max-len": ["warn", 100],
-    "import/no-unresolved": "off"
+    "max-len": ["warn", 100]
   }
 }

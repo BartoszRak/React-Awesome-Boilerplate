@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import withMuiTheme from './withMuiTheme'
-import { mocks } from '~utils/tests'
+import { mocks } from '../utils/tests'
 
 const FakeComponent = mocks.makeNamedComponent('FakeComponent')
 

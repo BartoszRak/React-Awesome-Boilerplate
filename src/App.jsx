@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { injectIntl } from 'react-intl'
-import withMuiTheme from '~theme/withMuiTheme'
+import withMuiTheme from './theme/withMuiTheme'
 
 export class App extends React.Component {
   static propTypes = {
