@@ -1,15 +1,19 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { mocks } from './utils/tests'
 
 import { App } from './App'
 
+jest.mock('./layout', () => 'LayoutMock')
+
 const initComponent = overrides => {
   const mockProps = {
-    intl: {
-      formatMessage: jest.fn(),
-    },
+    classes: mocks.classesProxy,
   }
-  const mockMethods = {}
+  const mockMethods = {
+    clearAuthState: jest.fn(),
+    updateAuthState: jest.fn(),
+  }
   const wrapper = shallow(<App {...mockProps} {...mockMethods} {...overrides} />)
   return { mockProps, wrapper }
 }

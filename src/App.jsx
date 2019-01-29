@@ -1,23 +1,53 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { injectIntl } from 'react-intl'
+import { BrowserRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import firebase from './services/firebase'
 import withMuiTheme from './theme/withMuiTheme'
+
+import Layout from './layout'
 
 export class App extends React.Component {
   static propTypes = {
-    intl: PropTypes.object,
+    clearAuthState: PropTypes.func,
+    updateAuthState: PropTypes.func,
+  }
+
+  componentDidMount() {
+    const { clearAuthState, updateAuthState } = this.props
+    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(async user => {
+      if (user) {
+        await updateAuthState({
+          authorizedUser: user,
+          isAuthorized: true,
+        })
+      } else {
+        await clearAuthState()
+      }
+    })
+  }
+
+  componentWillUnmount() {
+    this.unregisterAuthObserver()
   }
 
   render() {
-    const { intl } = this.props
-    const { formatMessage } = intl
     return (
-      <div>
-        My react app with internationalization...
-        {formatMessage({ id: 'testArea.label' })}
-      </div>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
     )
   }
 }
 
-export default withMuiTheme(injectIntl(App), true)
+const mapDispatch = ({
+  auth: {
+    clearAuthState,
+    updateAuthState,
+  },
+}) => ({
+  clearAuthState,
+  updateAuthState,
+})
+
+export default connect(null, mapDispatch)(withMuiTheme(App, true))

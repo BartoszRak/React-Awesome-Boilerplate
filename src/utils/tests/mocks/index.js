@@ -1,8 +1,8 @@
-import ClassesProxy from './ClassesProxy'
+import classesProxy from './classesProxy'
 import { makeNamedComponent, makeUnnamedComponent } from './makeComponent'
 
 export default {
-  ClassesProxy,
+  classesProxy,
   makeNamedComponent,
   makeUnnamedComponent,
 }

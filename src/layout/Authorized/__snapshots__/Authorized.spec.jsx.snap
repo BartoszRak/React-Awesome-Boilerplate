@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authorized:  should render as expected 1`] = `
+<div>
+  Authorized
+</div>
+`;
