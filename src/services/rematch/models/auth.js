@@ -17,7 +17,7 @@ const auth = {
       const { authorizedUser, isAuthorized } = payload
       return {
         ...state,
-        authorizedUser,
+        authorizedUser: Immutable.fromJS(authorizedUser),
         isAuthorized,
       }
     },
