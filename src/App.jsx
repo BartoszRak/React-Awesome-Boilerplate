@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ToastContainer } from 'react-toastify'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import firebase from './services/firebase'
@@ -34,7 +35,10 @@ export class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Layout />
+        <React.Fragment>
+          <Layout />
+          <ToastContainer />
+        </React.Fragment>
       </BrowserRouter>
     )
   }
