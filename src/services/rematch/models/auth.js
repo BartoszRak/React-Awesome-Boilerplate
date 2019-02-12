@@ -2,7 +2,7 @@ import Immutable from 'immutable'
 
 export const initialState = {
   authorizedUser: Immutable.Map({}),
-  isAuthed: false,
+  isAuthorized: false,
 }
 
 const auth = {
