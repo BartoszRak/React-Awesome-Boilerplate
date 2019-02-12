@@ -3,14 +3,27 @@ import PropTypes from 'prop-types'
 import { ToastContainer } from 'react-toastify'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { flatten } from 'flat'
+import { addLocaleData, IntlProvider } from 'react-intl'
+import localeEn from 'react-intl/locale-data/en'
+import localePl from 'react-intl/locale-data/pl'
+import messagesPl from './services/translation/pl.json'
+import messagesEn from './services/translation/en.json'
 import firebase from './services/firebase'
 import withMuiTheme from './theme/withMuiTheme'
 
 import Layout from './layout'
 
+const messages = {
+  en: flatten(messagesEn),
+  pl: flatten(messagesPl),
+}
+addLocaleData([...localeEn, ...localePl])
+
 export class App extends React.Component {
   static propTypes = {
     clearAuthState: PropTypes.func,
+    language: PropTypes.string,
     updateAuthState: PropTypes.func,
   }
 
@@ -33,10 +46,13 @@ export class App extends React.Component {
   }
 
   render() {
+    const { language } = this.props
     return (
       <BrowserRouter>
         <React.Fragment>
-          <Layout />
+          <IntlProvider locale={language} messages={messages[language]}>
+            <Layout />
+          </IntlProvider>
           <ToastContainer />
         </React.Fragment>
       </BrowserRouter>
@@ -54,4 +70,12 @@ const mapDispatch = ({
   updateAuthState,
 })
 
-export default connect(null, mapDispatch)(withMuiTheme(App, true))
+const mapState = ({
+  internationalization: {
+    language,
+  },
+}) => ({
+  language,
+})
+
+export default connect(mapState, mapDispatch)(withMuiTheme(App, true))

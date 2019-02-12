@@ -9,6 +9,7 @@ jest.mock('./layout', () => 'LayoutMock')
 const initComponent = overrides => {
   const mockProps = {
     classes: mocks.classesProxy,
+    language: 'en',
   }
   const mockMethods = {
     clearAuthState: jest.fn(),
