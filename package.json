@@ -6,6 +6,7 @@
     "@material-ui/core": "^3.9.0",
     "@rematch/core": "^1.0.6",
     "@rematch/loading": "^1.1.2",
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.15.0",
