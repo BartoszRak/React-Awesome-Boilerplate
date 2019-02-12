@@ -7,13 +7,10 @@ import document from './utils/document'
 import store from './services/rematch'
 
 import App from './App'
-import IntlWrapper from './components/IntlWrapper'
 
 ReactDOM.render(
   <Provider store={store}>
-    <IntlWrapper>
       <App />
-    </IntlWrapper>
   </Provider>,
   document.getElementById('root')
 )
