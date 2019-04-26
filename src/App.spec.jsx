@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { mocks } from './utils/tests'
+import { mocks } from '~utils/tests'
 
 import { App } from './App'
 
