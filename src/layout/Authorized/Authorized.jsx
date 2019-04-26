@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 
+import AuthorizedPages from '~pages/AuthorizedPages'
+
 import styles from './Authorized.style'
 
 export class Authorized extends React.Component {
@@ -12,8 +14,9 @@ export class Authorized extends React.Component {
   render() {
     const { classes } = this.props
     return (
-      <div>
+      <div className={classes.root}>
         Authorized
+        <AuthorizedPages />
       </div>
     )
   }

@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Unauthorized:  should render as expected 1`] = `
-<div>
+<div
+  className="root"
+>
   Unauthorized
+  <UnauthorizedPages />
 </div>
 `;
