@@ -7,12 +7,12 @@ import { flatten } from 'flat'
 import { addLocaleData, IntlProvider } from 'react-intl'
 import localeEn from 'react-intl/locale-data/en'
 import localePl from 'react-intl/locale-data/pl'
-import messagesPl from './services/translation/pl.json'
-import messagesEn from './services/translation/en.json'
-import firebase from './services/firebase'
-import withMuiTheme from './theme/withMuiTheme'
+import messagesPl from '~services/translation/pl.json'
+import messagesEn from '~services/translation/en.json'
+import firebase from '~services/firebase'
+import withMuiTheme from '~theme/withMuiTheme'
 
-import Layout from './layout'
+import Layout from '~layout'
 
 const messages = {
   en: flatten(messagesEn),
