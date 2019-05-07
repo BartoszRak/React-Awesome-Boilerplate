@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnauthorizedPages:  should render as expected 1`] = `
+<SwitchMock>
+  <RouteMock
+    component="LoginMock"
+    path="/"
+  />
+  <RedirectMock
+    from="*"
+    to="/"
+  />
+</SwitchMock>
+`;
