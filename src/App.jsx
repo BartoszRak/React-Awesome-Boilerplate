@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ToastContainer } from 'react-toastify'
 import { BrowserRouter } from 'react-router-dom'
@@ -20,16 +20,9 @@ const messages = {
 }
 addLocaleData([...localeEn, ...localePl])
 
-export class App extends React.Component {
-  static propTypes = {
-    clearAuthState: PropTypes.func,
-    language: PropTypes.string,
-    updateAuthState: PropTypes.func,
-  }
-
-  componentDidMount() {
-    const { clearAuthState, updateAuthState } = this.props
-    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(async user => {
+export function App({ language, clearAuthState, updateAuthState }) {
+  useEffect(() => {
+    const unregisterAuthObserver = firebase.auth().onAuthStateChanged(async user => {
       if (user) {
         await updateAuthState({
           authorizedUser: user,
@@ -39,43 +32,39 @@ export class App extends React.Component {
         await clearAuthState()
       }
     })
-  }
+    return function cleanup() {
+      unregisterAuthObserver()
+    }
+  })
 
-  componentWillUnmount() {
-    this.unregisterAuthObserver()
-  }
-
-  render() {
-    const { language } = this.props
-    return (
-      <BrowserRouter>
-        <React.Fragment>
-          <IntlProvider locale={language} messages={messages[language]}>
-            <Layout />
-          </IntlProvider>
-          <ToastContainer />
-        </React.Fragment>
-      </BrowserRouter>
-    )
-  }
+  return (
+    <BrowserRouter>
+      <React.Fragment>
+        <IntlProvider locale={language} messages={messages[language]}>
+          <Layout />
+        </IntlProvider>
+        <ToastContainer />
+      </React.Fragment>
+    </BrowserRouter>
+  )
 }
 
-const mapDispatch = ({
-  auth: {
-    clearAuthState,
-    updateAuthState,
-  },
-}) => ({
+App.propTypes = {
+  clearAuthState: PropTypes.func,
+  language: PropTypes.string,
+  updateAuthState: PropTypes.func,
+}
+
+const mapDispatch = ({ auth: { clearAuthState, updateAuthState } }) => ({
   clearAuthState,
   updateAuthState,
 })
 
-const mapState = ({
-  internationalization: {
-    language,
-  },
-}) => ({
+const mapState = ({ internationalization: { language } }) => ({
   language,
 })
 
-export default connect(mapState, mapDispatch)(withMuiTheme(App, true))
+export default connect(
+  mapState,
+  mapDispatch
+)(withMuiTheme(App, true))

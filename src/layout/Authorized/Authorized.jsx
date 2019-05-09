@@ -6,20 +6,17 @@ import AuthorizedPages from '~pages/AuthorizedPages'
 
 import styles from './Authorized.style'
 
-export class Authorized extends React.Component {
-  static propTypes = {
-    classes: PropTypes.object,
-  }
+export function Authorized({ classes }) {
+  return (
+    <div className={classes.root}>
+      Authorized
+      <AuthorizedPages />
+    </div>
+  )
+}
 
-  render() {
-    const { classes } = this.props
-    return (
-      <div className={classes.root}>
-        Authorized
-        <AuthorizedPages />
-      </div>
-    )
-  }
+Authorized.propTypes = {
+  classes: PropTypes.object,
 }
 
 export default withStyles(styles)(Authorized)

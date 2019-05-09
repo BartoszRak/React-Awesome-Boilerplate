@@ -6,20 +6,17 @@ import UnauthorizedPages from '~pages/UnauthorizedPages'
 
 import styles from './Unauthorized.style'
 
-export class Unauthorized extends React.Component {
-  static propTypes = {
-    classes: PropTypes.object,
-  }
+export function Unauthorized({ classes }) {
+  return (
+    <div className={classes.root}>
+      Unauthorized
+      <UnauthorizedPages />
+    </div>
+  )
+}
 
-  render() {
-    const { classes } = this.props
-    return (
-      <div className={classes.root}>
-        Unauthorized
-        <UnauthorizedPages />
-      </div>
-    )
-  }
+Unauthorized.propTypes = {
+  classes: PropTypes.object,
 }
 
 export default withStyles(styles)(Unauthorized)
