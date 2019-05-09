@@ -2,22 +2,18 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { mocks } from '~utils/tests'
 
-import { Layout } from './Layout'
-
-jest.mock('./Unauthorized', () => 'UnauthorizedMock')
-jest.mock('./Authorized', () => 'AuthorizedMock')
-jest.mock('./GlobalFooter', () => 'GlobalFooter')
+import { GlobalFooter } from './GlobalFooter'
 
 const initComponent = overrides => {
   const mockProps = {
     classes: mocks.classesProxy,
   }
   const mockMethods = {}
-  const wrapper = shallow(<Layout {...mockProps} {...mockMethods} {...overrides} />)
+  const wrapper = shallow(<GlobalFooter {...mockProps} {...mockMethods} {...overrides} />)
   return { mockProps, wrapper }
 }
 
-describe('Layout: ', () => {
+describe('GlobalFooter: ', () => {
   it('renders without crashing', () => {
     const { wrapper } = initComponent()
     expect(wrapper).toBeTruthy()

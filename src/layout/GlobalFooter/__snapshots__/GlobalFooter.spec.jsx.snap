@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GlobalFooter:  should render as expected 1`] = `
+<div>
+  <p>
+    Here is footer with some content:
+  </p>
+  <p>
+    Actual value:
+     
+    0
+  </p>
+  <ButtonMock
+    onClick={[Function]}
+  >
+    Increase
+  </ButtonMock>
+  <ButtonMock
+    onClick={[Function]}
+  >
+    Decrease
+  </ButtonMock>
+</div>
+`;
