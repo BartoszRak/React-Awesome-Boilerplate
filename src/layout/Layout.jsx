@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 import Authorized from './Authorized'
 import Unauthorized from './Unauthorized'
+import GlobalFooter from './GlobalFooter'
 
 import styles from './Layout.style'
 
@@ -21,6 +22,7 @@ export class Layout extends React.Component {
     return (
       <div className={classes.root}>
         {(authorizedUser && isAuthorized === true) ? <Authorized /> : <Unauthorized />}
+        <GlobalFooter />
       </div>
     )
   }
